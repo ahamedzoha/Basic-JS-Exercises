@@ -67,8 +67,8 @@ function rotate_string(text) {
   var newstring;
   for(i=0; i<=text.length; i++){
     //str.substring(0, str.length-1);
-    newstring = text[text.length-1] + text.substring(0, text.length-1);
-    console.log(newstring);
+    text = text[text.length-1] + text.substring(0, text.length-1);
+    console.log(text);
   }
   //console.log(text);
 }
