@@ -63,11 +63,11 @@ HINT: Use substring()
  --------------------------- */
 
 function rotate_string(text) {
-  var i = 0;
+  var i;
   var newstring;
-  for(i=0; i<=str.length; i++){
+  for(i=0; i<=text.length; i++){
     //str.substring(0, str.length-1);
-    newstring = text[text.length] + text.substring(0, text.length-1);
+    newstring = text[text.length-1] + text.substring(0, text.length-1);
     console.log(newstring);
   }
   //console.log(text);
