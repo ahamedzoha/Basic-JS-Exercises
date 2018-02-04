@@ -64,7 +64,6 @@ HINT: Use substring()
 
 function rotate_string(text) {
   var i;
-  var newstring;
   for(i=0; i<=text.length; i++){
     //str.substring(0, str.length-1);
     text = text[text.length-1] + text.substring(0, text.length-1);
@@ -94,13 +93,16 @@ HINT: Use split() and substring()
  --------------------------- */
 
 function protect_email(email) {
-  return "protected email";
+    var array = email.split('@');
+    var obfuscate = array[0].replace(array[0].substring(array[0].length -5), "...")+'@'+array[1];
+    return obfuscate;
 }
 
 console.log("Protected email:");
 /* Uncomment the following to check */
-  //console.log(protect_email("harry_potter@gmail.com"));
-  //console.log(protect_email("sarah.connor@gmail.com"));
+  console.log(protect_email("harry_potter@gmail.com"));
+  console.log(protect_email("sarah.connor@gmail.com"));
+  console.log(protect_email("tom_jenkins@example.com"));
 
 
 /* ---------------------------
@@ -118,13 +120,18 @@ HINT: Use indexOf() and slice()
  --------------------------- */
 
 function remove_first_occurrence(text, searchstring) {
-  return "edited text";
+    var original_text = text;
+    var t_indexA = original_text.indexOf(searchstring);
+    var t_indexB = original_text.indexOf(searchstring)+searchstring.length+1;
+    var mutated_text = original_text.replace(original_text.slice(t_indexA, t_indexB),'');
+    return mutated_text;
 }
 
 console.log("Remove First Occurrence:");
 /* Uncomment the following to check */
-  //console.log(remove_first_occurrence("The quick brown fox jumps over the lazy dog", 'the'));
-  //console.log(remove_first_occurrence("Drastic times call for drastic measures", 'drastic'));
+  console.log(remove_first_occurrence("The quick brown fox jumps over the lazy dog", 'the'));
+  console.log(remove_first_occurrence("Drastic times call for drastic measures", 'drastic'));
+
 
 
 /* ---------------------------
@@ -142,14 +149,15 @@ HINT: Use join(), split() and sort() functions
  --------------------------- */
 
 function alphabetic_order(word) {
-  return "rearranged word";
+    var array = word.split("").sort().join("");
+    return array;
 }
 
 console.log("Alphabetic Order:");
 /* Uncomment the following to check */
-  // console.log(alphabetic_order("textbook"));
-  // console.log(alphabetic_order("webmaster"));
-  // console.log(alphabetic_order("supercalifragilisticexpialidocious"));
+    console.log(alphabetic_order("textbook"));
+    console.log(alphabetic_order("webmaster"));
+    console.log(alphabetic_order("supercalifragilisticexpialidocious"));
 
 
 /* ---------------------------
@@ -165,13 +173,37 @@ c occurs 5 times
  --------------------------- */
 
 function most_frequent(arr) {
-  console.log("Most frequently occuring item in arr");
+    var i, j;
+    var x, y;
+    var counter=0;
+    var sortedArr = arr.sort();
+    var freqArr = [];
+
+    /*for (var i = 0; i < arr.length; i++) {
+
+        for (var j = 0; j < arr.length; j++) {
+            if (arr[j] === arr[i]) {
+
+            }
+        }
+    }*/
+    for (i = 1; i < sortedArr.length; i++) {
+
+        if(sortedArr[i]===sortedArr[i-1]){
+            counter++;
+        }
+        freqArr.push(counter);
+    }
+
+    //console.log(x+" occurs "+ y +" times");
+    console.log(sortedArr);
+    console.log(freqArr);
 }
 
 console.log("Most Frequent Item:");
 /* Uncomment the following to check */
-  // most_frequent([3, 'c', 'c', 'c', 2, 3, 'c', 3, 'c', 2, 4, 9, 3]);
-  // most_frequent([7, 2, 'ax', '9', 9, 'ax', 'ax']);
+    most_frequent([3, 'c', 'c', 'c', 2, 3, 'c', 3, 'c', 2, 4, 9, 3]);
+    most_frequent([7, 2, 'ax', '9', 9, 'ax', 'ax']);
 
 
 /* ---------------------------
