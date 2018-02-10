@@ -173,31 +173,22 @@ c occurs 5 times
  --------------------------- */
 
 function most_frequent(arr) {
-    var i, j;
-    var x, y;
+    var temp;
+    var max=0;
     var counter=0;
-    var sortedArr = arr.sort();
-    var freqArr = [];
-
-    /*for (var i = 0; i < arr.length; i++) {
-
-        for (var j = 0; j < arr.length; j++) {
-            if (arr[j] === arr[i]) {
-
+    for (var i = 0; i <arr.length; i++) {
+        for (var j = 0; i < arr.length; j++) {
+            if (arr[i]==arr[j]) {
+                counter++;
             }
         }
-    }*/
-    for (i = 1; i < sortedArr.length; i++) {
-
-        if(sortedArr[i]===sortedArr[i-1]){
-            counter++;
+        if(counter>max){
+            temp = arr[i];
+            max = counter;
         }
-        freqArr.push(counter);
+        counter = 0;
     }
-
-    //console.log(x+" occurs "+ y +" times");
-    console.log(sortedArr);
-    console.log(freqArr);
+    console.log(item + ' occurs ' + max + ' times');
 }
 
 console.log("Most Frequent Item:");
