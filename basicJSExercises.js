@@ -241,15 +241,23 @@ Output:
  --------------------------- */
 
 function dash_in_even(number) {
-  console.log("even numbers separated by dashes");
+  var string = "";
+  var numberArray = number.toString();
+  for (var i = 0; i < numberArray.length; i++) {
+      string = string + numberArray[i];
+      if(numberArray[i]%2==0 && numberArray[i+1]%2==0){
+          string = string + '-';
+      }
+  }
+  console.log(string);
 }
 
 console.log("Dash between Even Numbers:");
 /* Uncomment the following to check */
-  // dash_in_even(100);
-  // dash_in_even(1356);
-  // dash_in_even(246824);
-  // dash_in_even(1324567824);
+dash_in_even(100);
+dash_in_even(1356);
+dash_in_even(246824);
+dash_in_even(1324567824);
 
 
 /* ---------------------------
