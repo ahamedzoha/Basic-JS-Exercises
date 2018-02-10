@@ -219,13 +219,27 @@ Output:
  --------------------------- */
 
 function remove_duplicates(arr) {
-  console.log("Duplicates removed from array");
+  var isDuplicate = false;
+  var temp;
+  var outputarray = [];
+  for (var i = 0; i < arr.length; i++) {
+      for (var j = 0; j < outputarray.length; j++) {
+          if(arr[i]==outputarray[j]){
+              isDuplicate=true;
+          }
+      }
+      if(!isDuplicate){
+          outputarray[outputarray.length] = arr[i];
+      }
+      isDuplicate = false;
+  }
+  console.log(outputarray);
 }
 
 console.log("Remove Duplicate Values:");
 /* Uncomment the following to check */
-  // remove_duplicates([3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3]);
-  // remove_duplicates([4, 4, 4, 5, 's', 8, 's']);
+remove_duplicates([3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3]);
+remove_duplicates([4, 4, 4, 5, 's', 8, 's']);
 
 
 /* ---------------------------
